@@ -36,7 +36,7 @@ function argv(configPath) {
         demandOption: false,
         describe: 'HTTP User Agent',
         type: 'string',
-        default: 'edge'
+        default: 'chrome'
       },
       'edgeUserAgent': {
         demandOption: false,

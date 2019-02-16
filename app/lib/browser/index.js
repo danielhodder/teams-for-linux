@@ -5,6 +5,7 @@
   const { ipcRenderer } = require('electron');
   const trayNotifications = require('./tray-notifications');
   const nativeNotifications = require('./native-notifications');
+  require('./chrome-api')
 
   const iconPath = path.join(__dirname, '../assets/icons/icon-96x96.png');
 
