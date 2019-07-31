@@ -5,6 +5,7 @@
   const { ipcRenderer } = require('electron');
   const trayNotifications = require('./tray-notifications');
   const nativeNotifications = require('./native-notifications');
+  const messagingUtilitiesPatch = require('./messaging-utilities-patch');
   require('./chrome-api')
 
   const iconPath = path.join(__dirname, '../assets/icons/icon-96x96.png');
@@ -20,4 +21,6 @@
       ipc: ipcRenderer,
       iconPath
     }));
+
+  document.addEventListener('DOMContentLoaded', messagingUtilitiesPatch);
 })();

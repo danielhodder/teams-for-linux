@@ -77,11 +77,13 @@ app.on('ready', () => {
     window.webContents.setUserAgent(config.chromeUserAgent);
   }
   
-  window.loadURL(config.url);
+  window.webContents.session.clearStorageData({ storages: ['serviceworkers'] }, () => {
+    window.loadURL(config.url);
 
-  if (config.webDebug) {
-    window.openDevTools();
-  }
+    if (config.webDebug) {
+      window.openDevTools();
+    }
+  });
 });
 
 app.on('login', function (event, webContents, request, authInfo, callback) {
